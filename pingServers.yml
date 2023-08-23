@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+   - name: pinging host machines
+     ping:     # module
+...

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+   - name: Creating File in host machines
+     file:
+       path: /tmp/code.sh
+       mode: 0777
+       owner: ec2-user
+       group: ec2-user
+       state: touch
+...
