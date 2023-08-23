@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    name: SNB
+  tasks:
+   - name: Display The value of variable "name"
+     debug:
+       msg: "The Value of var name is : {{name}}"
+...
