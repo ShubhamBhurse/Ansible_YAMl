@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Create ec2-user
+      user:
+        name: "{{item.username}}"
+        create_home: "{{item.createhome}}"
+      with_items:
+        - { 'username':'sahil', 'createhome': no }
+        - { 'username':'shubham', 'createhome': no }
+        - { 'username':'boxer', 'createhome': yes }
+        - { 'username':'raju', 'createhome': yes }
+...
