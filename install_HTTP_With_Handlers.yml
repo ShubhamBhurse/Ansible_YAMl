@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: true
+  vars:
+     companyName: Google
+     location: U.S.A.
+  tasks:
+    - name: Installing Apache HTTP service
+      yum:
+       name: httpd
+       state: latest
+    - name: Copy index.html
+      template:
+       src: index.html
+       dest: /var/www/html/index.html
+       notify:
+        - Re-start
+  handlers:     
+    - name: Re-start
+      service:
+       name: httpd
+       state: started
+       enabled: true
+...

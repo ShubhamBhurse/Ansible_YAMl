@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install tree On RedHat
+      yum:
+        name: tree
+        state: present
+        when: ansible_os_family == "RedHat"
+    - name: Install Git On Ubuntu
+      apt:
+        name: git
+        state: present
+        when: ansible_os_family == "Debian"
+...
